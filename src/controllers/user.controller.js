@@ -54,16 +54,18 @@ const UserController = {
 
   deleteUser: async (req, res) => {
     const userId = req.params.id;
+    console.log(`Received DELETE request in contorller`);
+    
     try {
-      const deletedUser = await UserService.deleteUser(userId);
-      if (!deletedUser) {
-        return res.status(404).json({ error: 'User not found' });
-      }
-      res.json({ message: 'User deleted successfully' });
+        const deletedUser = await UserService.deleteUser(userId);
+        if (!deletedUser) {
+            return res.status(404).json({ error: 'User not found' });
+        }
+        res.json({ message: 'User deleted successfully' });
     } catch (error) {
-      res.status(500).json({ error: error.message });
+        res.status(500).json({ error: error.message });
     }
-  },
+},
 };
 
 module.exports = UserController;
