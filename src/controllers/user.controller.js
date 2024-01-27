@@ -32,7 +32,7 @@ const UserController = {
     const userData = req.body;
     try {
       const newUser = await UserService.createUser(userData);
-      res.status(201).json(newUser);
+      res.status(200).json(newUser);
     } catch (error) {
       res.status(500).json({ error: error.message });
     }

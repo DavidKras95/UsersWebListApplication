@@ -6,7 +6,7 @@ const UserService = {
     getUsers: async (page) => {
         try {
             const response = await axios.get(`https://reqres.in/api/users?page=${page}`);
-            return response.data;
+            return response.data.data;
         }
         catch (error) {
             console.log(error);
@@ -17,7 +17,7 @@ const UserService = {
     getUser: async (userId) => {
         try {
             const response = await axios.get(`https://reqres.in/api/users?id=${userId}`);
-            return response.data;
+            return response.data.data;
         }
         catch (error) {
             console.log(error);
@@ -56,18 +56,13 @@ const UserService = {
 
     deleteUser: async (userId) => {
         try {
-            console.log(`Received DELETE in service`);
             const response = await axios.delete(`https://reqres.in/api/users/${userId}`);
-            console.log("respose");
-            console.log(response);
-            console.log("respose");
-            return response.data;
+            return response.status;
+        } catch (error) {
+            console.error('Error deleting user:', error);
+            throw error;
         }
-        catch (error) {
-            console.log(error);
-            throw error; 
-        }
-    },
+    }
   };
 
   module.exports = UserService;
