@@ -2,6 +2,7 @@
 const axios = require('axios').default
 
 const UserService = {
+
     getUsers: async (page) => {
         try {
             const response = await axios.get(`https://reqres.in/api/users?page=${page}`);
@@ -41,9 +42,18 @@ const UserService = {
     },
 
     updateUser: async (userId, updatedUserData) => {
-
+        try {
+            const response = await axios.put(`https://reqres.in/api/users/${userId}`, {
+                name: updatedUserData.name,
+                job: updatedUserData.job
+            });
+            return response.data;
+        } catch (error) {
+            console.log(error);
+            throw error;
+        }
     },
-  
+
     deleteUser: async (userId) => {
         try {
             console.log(`Received DELETE in service`);
