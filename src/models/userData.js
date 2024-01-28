@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema;
 
 
-const userSchema = new Schema({
+const userDataSchema = new Schema({
     id: {
         type: Number,
         required: true
@@ -25,5 +25,5 @@ const userSchema = new Schema({
     } 
 }, { timestamps: true });
 
-const User = mongoose.model('User', userSchema);
-module.exports = User;
+const UserData = mongoose.model('UserData', userDataSchema);
+module.exports = UserData;
