@@ -8,21 +8,36 @@ const userDataSchema = new Schema({
         required: true
     },
     email: {
-        type: String,
-        required: true
+        // type: String,
+        // required: true
+        type: String
+
     },
     first_name:{
-        type: String,
-        required: true
+        // type: String,
+        // required: true
+        type: String
     },
     last_name:{
+        // type: String,
+        // required: true
         type: String,
-        required: true
     },
     avatar:{
+        // type: String,
+        // required: true
         type: String,
-        required: true
-    } 
+    },
+    name:{
+        // type: String,
+        // required: true
+        type: String,
+    },
+    job:{
+        // type: String,
+        // required: true
+        type: String,
+    }  
 }, { timestamps: true });
 
 const UserData = mongoose.model('UserData', userDataSchema);

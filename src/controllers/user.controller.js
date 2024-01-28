@@ -5,12 +5,11 @@
     getUsers: async (req, res) => {
       try {
         const page = req.params.page;
-        console.log("in Cotroller")
         const users = await UserService.getUsers(page);
         res.json(users);
       }
       catch (error) {
-        res.status(500).json({ error: error.message });
+        res.status(404).json({ error: error.message });
       }
     },
 
@@ -24,7 +23,7 @@
         res.json(user);
       }
       catch (error) {
-        res.status(500).json({ error: error.message });
+        res.status(404).json({ error: error.message });
       }
     },
 
@@ -34,7 +33,7 @@
         const newUser = await UserService.createUser(userData);
         res.status(200).json(newUser);
       } catch (error) {
-        res.status(500).json({ error: error.message });
+        res.status(404).json({ error: error.message });
       }
     },
 
@@ -48,7 +47,7 @@
         }
         res.json(updatedUser);
       } catch (error) {
-        res.status(500).json({ error: error.message });
+        res.status(404).json({ error: error.message });
       }
     },
 
@@ -63,7 +62,7 @@
           }
           res.json({ message: 'User deleted successfully' });
       } catch (error) {
-          res.status(500).json({ error: error.message });
+          res.status(404).json({ error: error.message });
       }
   },
   };
