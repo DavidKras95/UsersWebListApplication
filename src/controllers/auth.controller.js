@@ -9,7 +9,7 @@ const AuthController = {
             if(response instanceof Error){
               res.status(404).json({ error: response.message });
             }
-            else res.status(200).json(response);
+            else res.status(200).json({ token: response.token});
           }
           catch (error) {
             res.status(404).json({ error: error.message });
@@ -21,13 +21,14 @@ const AuthController = {
         try {
             const { email, password } = req.body;
             const response = await AuthService.register({ email, password },res);
+            console.log(response);
             if(response.status === 404){
               res.status(404).json({ error: "Email already registerd, use another" });
             } 
             else if(response instanceof Error){
               res.status(404).json({ error: "Only autheorized emails can register" });
             }
-            else res.status(200).json({ success: "Registered succesfully" })
+            else res.status(200).json({ id: response.id, token: response.token })
           }
           catch (error) {
             console.log(error)

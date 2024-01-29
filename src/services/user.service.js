@@ -92,11 +92,13 @@ const UserService = {
                     console.log('User not found in db, create new one')
                     updatedUserData.id = userId;
                     await UserRepository.saveUserDb(updatedUserData);
-                    return responseUpdateUserApi;
+
                 }
                 else{
                     updateUserDbResult = await UserRepository.updateUserDb(userId,updatedUserData);
-                    if(updateUserDbResult == 1) return responseUpdateUserApi;
+                    console.log(updatedUserData);
+
+                    if(updateUserDbResult.matchedCount === 1) return updateUserDbResult.updatedUser;
                     else{
                         const errors = { erromMassege: `Failed to update user` };
                         return errors;

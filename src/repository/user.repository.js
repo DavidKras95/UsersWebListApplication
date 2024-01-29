@@ -140,7 +140,8 @@ const UserRepository = {
                 },
             };
             const result = await User.updateOne(filter, update);
-            return result.matchedCount;
+            const updatedUser = await User.findOne(filter);
+            return {matchedCount: result.matchedCount, updatedUser: updatedUser};
         } catch (error) {
             console.error('Failed to save user to db:', error);
             throw error;
