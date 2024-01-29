@@ -65,10 +65,8 @@ const UserService = {
         try {
             console.log("Create user to API");
             const userDataApiResponse = await UserRepository.createUserApi(userData);
-    
             console.log("Save user to DB");
             await UserRepository.saveUserDb(userDataApiResponse);
-    
             console.log("User created successfully");
             return userDataApiResponse;
         } catch (error) {

@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const userRoutes = require('./src/routes/user.route');
-const authRoutes = require('./src/routes/auth.route');
+// const authRoutes = require('./src/routes/auth.route');
 const mongoose = require('mongoose');
 const User = require('./src/models/userData');
 const cookieParser = require('cookie-parser');
@@ -32,7 +32,7 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 
 app.use('/', userRoutes);
-app.use('/auth', authRoutes);
+// app.use('/auth', authRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

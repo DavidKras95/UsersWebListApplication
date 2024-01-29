@@ -1,6 +1,5 @@
 const axios = require('axios').default;
 const User = require('../models/userData');
-
 const PageUserData = require('../models/pageUserData');
 
 const UserRepository = {
