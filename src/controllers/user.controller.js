@@ -54,7 +54,6 @@
     deleteUser: async (req, res) => {
       const userId = req.params.id;
       console.log(`Received DELETE request in contorller`);
-      
       try {
           const deletedUser = await UserService.deleteUser(userId);
           if (!deletedUser) {

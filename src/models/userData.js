@@ -8,34 +8,22 @@ const userDataSchema = new Schema({
         required: true
     },
     email: {
-        // type: String,
-        // required: true
         type: String
 
     },
     first_name:{
-        // type: String,
-        // required: true
         type: String
     },
     last_name:{
-        // type: String,
-        // required: true
         type: String,
     },
     avatar:{
-        // type: String,
-        // required: true
         type: String,
     },
     name:{
-        // type: String,
-        // required: true
         type: String,
     },
     job:{
-        // type: String,
-        // required: true
         type: String,
     }  
 }, { timestamps: true });

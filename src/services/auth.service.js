@@ -1,14 +1,19 @@
-
 const axios = require('axios');
+const jwt = require('jsonwebtoken');
+const cookie = require('cookie');
 const AuthRepository = require('../repository/auth.repository');
 
 const AuthService = {
 
-    login: async (credentials) => {
+    login: async (credentials, res) => {
         try {
             const user = await AuthRepository.fetchUserDb(credentials);
+            const token = jwt.sign({token: user.token}, process.env.TOKEN_SECRET , { expiresIn: '1h' });
+            res.setHeader('Set-Cookie', cookie.serialize('token', token, {
+                httpOnly: true,
+                maxAge: 60 * 60, 
+            }));
 
-            // Do something with the user, maybe generate a token or send user details
             return user;
         } catch (error) {
             console.error(`Error during login: ${error.message}`);
@@ -16,14 +21,13 @@ const AuthService = {
         }
     },
 
-    register: async (credentials) => {
+    register: async (credentials, res) => {
         console.log("auth controller service")
         try {
             const response = await axios.post(`https://reqres.in/api/register/`, {
                 email: credentials.email,
                 password: credentials.password
             });
-            console.log(response);
             console.log("Registered successfully on API");  
             const responseSaveUser = await AuthRepository.saveRegisterUserDb({
                 id: response.data.id,
@@ -36,6 +40,12 @@ const AuthService = {
                 return responseSaveUser;
             } else {
                 console.log("User saved successfully to the database");
+
+                const token = jwt.sign({token: responseSaveUser.token}, process.env.TOKEN_SECRET , { expiresIn: '1h' });
+                res.setHeader('Set-Cookie', cookie.serialize('token', token, {
+                    httpOnly: true,
+                    maxAge: 60 * 60, 
+                }));
                 return responseSaveUser;
             }
         }

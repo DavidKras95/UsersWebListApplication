@@ -132,7 +132,7 @@ const UserRepository = {
 
     updateUserDb: async (userId, userData) => {
         try {
-            const filter = { id: userId }; // Assuming userId is the value of the "id" field
+            const filter = { id: userId }; 
             const update = {
                 $set: {
                     name: userData.name,

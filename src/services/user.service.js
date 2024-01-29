@@ -39,7 +39,6 @@ const UserService = {
         try {
             console.log("Search user in db")
             const cachedUser = await UserRepository.getUserByIdDb(userId);
-            console.log(cachedUser)
             console.log("Search user in db")
             if (cachedUser) {
                 console.log('Data found in MongoDB');

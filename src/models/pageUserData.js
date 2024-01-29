@@ -41,7 +41,7 @@ const pageSchema = new Schema({
         type: Number,
         required: true
     },
-    data: [userSchema],  // Array of objects with userSchema structure
+    data: [userSchema],  
     support: {
         url: {
             type: String,

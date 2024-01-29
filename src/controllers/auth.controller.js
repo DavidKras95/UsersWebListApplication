@@ -1,4 +1,3 @@
-const UserAuth = require('../models/usersAuth');
 const AuthService = require('../services/auth.service');
 
 const AuthController = {
@@ -6,7 +5,7 @@ const AuthController = {
     login: async (req, res) => {
         try {
             const { email, password } = req.body;
-            const response = await AuthService.login({ email, password });
+            const response = await AuthService.login({ email, password }, res);
             if(response instanceof Error){
               res.status(404).json({ error: response.message });
             }
@@ -21,7 +20,7 @@ const AuthController = {
     register: async (req, res) => {
         try {
             const { email, password } = req.body;
-            const response = await AuthService.register({ email, password });
+            const response = await AuthService.register({ email, password },res);
             if(response.status === 404){
               res.status(404).json({ error: "Email already registerd, use another" });
             } 
