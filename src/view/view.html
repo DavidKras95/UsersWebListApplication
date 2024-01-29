@@ -1,103 +1,97 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Node.js Express Test Form</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
-    }
-
-    h1 {
-      text-align: center;
-    }
-
-    form {
-      max-width: 500px;
-      margin: auto;
-    }
-
-    label {
-      display: block;
-      margin-bottom: 8px;
-    }
-
-    input,
-    textarea,
-    select {
-      width: 100%;
-      padding: 8px;
-      margin-bottom: 16px;
-      box-sizing: border-box;
-    }
-
-    .error-message {
-      color: red;
-      margin-bottom: 16px;
-    }
-
-    button {
-      background-color: #4CAF50;
-      color: white;
-      padding: 10px 15px;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background-color: #45a049;
-    }
-  </style>
-</head>
-<body>
-
-  <h1>USERS WEB list application</h1>
-
-  <form action="/chooseRoute" method="post" onsubmit="return validateForm()">
-    
-    <label for="idBox">ID:</label>
-    <input type="text" id="idBox" name="idBox">
-
-    <label for="textBox">Enter Json:</label>
-    <textarea id="textBox" name="textBox" rows="4" cols="50"></textarea>
-
-    <div id="error-message" class="error-message"></div>
-
-    <label for="routeSelect">Choose Route:</label>
-    <select id="routeSelect" name="routeSelect">
-      <option value="/getUsers/1">Get Users</option>
-      <option value="/getUser/1">Get User</option>
-      <option value="/createUser">Create User</option>
-      <option value="/updateUser">Update User</option>
-      <option value="/deleteUser/1">Delete User</option>
-      <option value="/login">Login</option>
-      <option value="/register">Register</option>
-    </select>
-    
-    <button type="submit">Submit</button>
-  </form>
-
-  <script>
-    function validateForm() {
-      var idBoxValue = document.getElementById("idBox").value;
-      var textBoxValue = document.getElementById("textBox").value;
-      var errorMessage = document.getElementById("error-message");
-
-      if (idBoxValue.trim() === "" && textBoxValue.trim() === "") {
-        errorMessage.textContent = "ID or Text Box must have input.";
-        return false;
-      } else {
-        errorMessage.textContent = "";
-        return true;
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Node.js Express Test Form</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
       }
-    }
-  </script>
 
-</body>
-</html> 
+      h1 {
+        text-align: center;
+      }
 
+      form {
+        max-width: 500px;
+        margin: auto;
+      }
 
+      label {
+        display: block;
+        margin-bottom: 8px;
+      }
 
+      input,
+      textarea,
+      select {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 16px;
+        box-sizing: border-box;
+      }
+
+      .error-message {
+        color: red;
+        margin-bottom: 16px;
+      }
+
+      button {
+        background-color: #4caf50;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>USERS WEB list application</h1>
+
+    <form action="/chooseRoute" method="post" onsubmit="return validateForm()">
+      <label for="idBox">ID:</label>
+      <input type="text" id="idBox" name="idBox" />
+
+      <label for="textBox">Enter Json:</label>
+      <textarea id="textBox" name="textBox" rows="4" cols="50"></textarea>
+
+      <div id="error-message" class="error-message"></div>
+
+      <label for="routeSelect">Choose Route:</label>
+      <select id="routeSelect" name="routeSelect">
+        <option value="/getUsers/1">Get Users</option>
+        <option value="/getUser/1">Get User</option>
+        <option value="/createUser">Create User</option>
+        <option value="/updateUser">Update User</option>
+        <option value="/deleteUser/1">Delete User</option>
+        <option value="/login">Login</option>
+        <option value="/register">Register</option>
+      </select>
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <script>
+      function validateForm() {
+        var idBoxValue = document.getElementById("idBox").value;
+        var textBoxValue = document.getElementById("textBox").value;
+        var errorMessage = document.getElementById("error-message");
+
+        if (idBoxValue.trim() === "" && textBoxValue.trim() === "") {
+          errorMessage.textContent = "ID or Text Box must have input.";
+          return false;
+        } else {
+          errorMessage.textContent = "";
+          return true;
+        }
+      }
+    </script>
+  </body>
+</html>
