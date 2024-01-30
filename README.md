@@ -100,7 +100,3 @@ The application allows consumption only from the following origins:
    ```
 
 Please https://reqres.in/ to see how the API should work.
-
-```
-
-```
