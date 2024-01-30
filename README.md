@@ -89,15 +89,18 @@ The application allows consumption only from the following origins:
 
 3. Create a .env file and configure the following variables
 
-````env
-TOKEN_SECRET = URL to db recived from David
-TOKEN_SECRET = Secret recived from David
- ```
+   ```env
+   TOKEN_SECRET = URL to db recived from David
+   TOKEN_SECRET = Secret recived from David
+   ```
 
 4. Install dependencies.
    ```bash
    npm run
-    ```
+   ```
 
 Please https://reqres.in/ to see how the API should work.
-````
+
+```
+
+```
