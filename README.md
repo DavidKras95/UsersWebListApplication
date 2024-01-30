@@ -92,6 +92,7 @@ The application allows consumption only from the following origins:
 ````env
 TOKEN_SECRET = URL to db recived from David
 TOKEN_SECRET = Secret recived from David
+ ```
 
 4. Install dependencies.
    ```bash
