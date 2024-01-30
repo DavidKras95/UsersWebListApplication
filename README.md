@@ -98,5 +98,6 @@ The application allows consumption only from the following origins:
    ```bash
    npm start
    ```
+View the website at: http://localhost:3000
 
 Please https://reqres.in/ to see how the API should work.
