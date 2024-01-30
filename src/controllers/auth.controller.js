@@ -5,7 +5,7 @@ const AuthController = {
     try {
       const { email, password } = req.body;
       const response = await AuthService.login({ email, password }, res);
-      if (response instanceof Error) {
+      if (response.status === 404) {
         res.status(404).json({ error: response.message });
       } else res.status(200).json({ token: response.token });
     } catch (error) {
