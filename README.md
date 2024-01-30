@@ -81,22 +81,22 @@ The application allows consumption only from the following origins:
    git clone https://github.com/DavidKras95/UsersWebListApplication.git
    ```
 
-2. Install dependencies.
+2. Create a .env file and configure the following variables
+
+   ```env
+   MONGODB_URI = URL to db recived from David
+   TOKEN_SECRET = Secret recived from David
+   ```
+
+3. Install dependencies.
 
    ```bash
    npm install
    ```
 
-3. Create a .env file and configure the following variables
-
-   ```env
-   TOKEN_SECRET = URL to db recived from David
-   TOKEN_SECRET = Secret recived from David
-   ```
-
 4. Install dependencies.
    ```bash
-   npm run
+   npm start
    ```
 
 Please https://reqres.in/ to see how the API should work.
